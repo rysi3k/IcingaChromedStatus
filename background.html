@@ -71,6 +71,7 @@ function refreshData(refreshStatus, sendResponse)
     }
 
     debug_log(res.getAllResponseHeaders());
+  
     if ( status === "success" || status === "notmodified" ) {
       var selector = " .status > tbody > tr:gt(0)";
 
@@ -105,14 +106,15 @@ function refreshData(refreshStatus, sendResponse)
               // get Host state
               var statusclass = $(this).attr('class');
               host = val;
+             
               var href = $(e).find("a").attr('href');
               acked = $(e).find("span[imgurl*='ack.gif']").attr('imgurl');
               ackHost = ( acked == undefined ) ? false : true;
               downtimeed = $(e).find("span[imgurl*='downtime.gif']").attr('imgurl');
               downtimeHost = ( downtimeed == undefined ) ? false : true;
-
+              
               // do not add hosts that we've ignored with regexp
-              if (ignoreHostsRegexp.source == '' || host.search(ignoreHostsRegexp) == -1) {
+              if (ignoreHostsRegexp.source == '' || ignoreHostsRegexp.source=='(?:)' || host.search(ignoreHostsRegexp) == -1) {
                 h = new Host(host, href);
                 // TODO: pridat kontrolu acku u hosta
                 hosts.addHost(h, statusclass, ackHost, downtimeHost);
@@ -134,8 +136,8 @@ function refreshData(refreshStatus, sendResponse)
 
             // do not add services that we've ignored with regexp
             // also do not add those from ignored hosts
-            if ((ignoreServicesRegexp.source == '' || service.search(ignoreServicesRegexp) == -1)
-                    && (ignoreHostsRegexp.source == '' ||  host.search(ignoreHostsRegexp) == -1)) {
+            if ((ignoreServicesRegexp.source == '' || ignoreServicesRegexp.source=='(?:)' || service.search(ignoreServicesRegexp) == -1)
+                    && (ignoreHostsRegexp.source == '' || ignoreHostsRegexp.source=='(?:)' ||  host.search(ignoreHostsRegexp) == -1)) {
               s = new Service(service, link, state, ackService, downtimeService);
               hosts.getHost(host).addService(s);
                   //debug_log("Found service: "+service+" with url "+href+" and state "+state);
