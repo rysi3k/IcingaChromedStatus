@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.1a - 27. 6. 2012
+-------------------
+  * Fixed changed Chrome v20 RegExp.source property behavior which now returns "(?:)" instead of "" with empty regex
+
 0.1.1 - 28. 4. 2012
 -------------------
   * New option: Hide acknowledged hosts and services in popup

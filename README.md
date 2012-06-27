@@ -22,6 +22,7 @@ Contributors
 ------------
 - kepi
 - slawekp (regexp ignoring of hosts/services)
+- rysi3k (fix for Chrome v20)
 
 
 License
