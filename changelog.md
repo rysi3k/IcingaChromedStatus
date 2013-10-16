@@ -1,9 +1,9 @@
 Changelog
 =========
 
-0.1.1a - 27. 6. 2012
+0.1.2 - 11. 7. 2012
 -------------------
-  * Fixed changed Chrome v20 RegExp.source property behavior which now returns "(?:)" instead of "" with empty regex
+  * Fix wrong handling of empty regexps which probably caused non-working extension. See #13
 
 0.1.1 - 28. 4. 2012
 -------------------
