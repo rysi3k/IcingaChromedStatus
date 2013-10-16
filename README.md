@@ -22,7 +22,7 @@ Contributors
 ------------
 - kepi
 - slawekp (regexp ignoring of hosts/services)
-- rysi3k (fix for Chrome v20)
+- rysi3k (fix for Chrome 20+, support for paginated services list in Icinga 1.9.x)
 
 
 License

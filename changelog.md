@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.3 - 17. 10. 2013
+-------------------
+  * In Icinga 1.9.x service list is paginated, added limit=0 param to handle it
+
 0.1.2 - 11. 7. 2012
 -------------------
   * Fix wrong handling of empty regexps which probably caused non-working extension. See #13
